@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "postinstall": "ng build --prod",
+    "start": "node server.js",
+    "serve": "ng serve",
     "build:dev": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
@@ -27,7 +29,9 @@
     "@fortawesome/free-solid-svg-icons": "5.4.0",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
@@ -51,5 +55,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.1"
+  },
+  "engines": {
+    "node": "10.17.0",
+    "npm": "6.11.13"
   }
 }
