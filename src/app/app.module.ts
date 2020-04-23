@@ -11,8 +11,7 @@ import { MenuComponent } from './components/layout/menu/menu.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 
 /* Font Awesome */
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeModule, FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {faHome} from '@fortawesome/free-solid-svg-icons/faHome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import {faUsers} from '@fortawesome/free-solid-svg-icons/faUsers';
@@ -23,18 +22,13 @@ import {faBusinessTime} from '@fortawesome/free-solid-svg-icons/faBusinessTime';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 import {faComment} from '@fortawesome/free-solid-svg-icons/faComment';
 import {faPaperPlane} from '@fortawesome/free-solid-svg-icons/faPaperPlane';
-
-library.add(faHome);
-library.add(faEnvelope);
-library.add(faUsers);
-library.add(faUsersCog);
-library.add(faUserClock);
-library.add(faCommentDots);
-library.add(faBusinessTime);
-library.add(faUser);
-library.add(faComment);
-library.add(faPaperPlane);
-
+import {faChevronCircleLeft} from '@fortawesome/free-solid-svg-icons/faChevronCircleLeft';
+import {faChevronCircleRight} from '@fortawesome/free-solid-svg-icons/faChevronCircleRight';
+import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
+import {faPhone} from '@fortawesome/free-solid-svg-icons/faPhone';
+import {faCoffee} from '@fortawesome/free-solid-svg-icons/faCoffee';
+import {faInstagram as faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
+import {faWhatsapp as faWhatsapp} from '@fortawesome/free-brands-svg-icons/faWhatsapp';
 
 @NgModule({
   declarations: [
@@ -54,4 +48,26 @@ library.add(faPaperPlane);
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faHome,
+      faEnvelope,
+      faUsers,
+      faUsersCog,
+      faUserClock,
+      faCommentDots,
+      faBusinessTime,
+      faUser,
+      faComment,
+      faPaperPlane,
+      faPaperPlane,
+      faChevronCircleLeft,
+      faChevronCircleRight,
+      faCheck,
+      faPhone,
+      faCoffee,
+      faInstagram,
+      faWhatsapp);
+    }
+}
