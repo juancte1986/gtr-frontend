@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {environment} from '@envs/environment';
+import {LayoutService} from '@services/layout.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public title: string;
 
-  ngOnInit() {
+  constructor(private layoutService: LayoutService ) { }
+
+  public ngOnInit(): void {
+    this.title = environment.title;
   }
 
+  public scrollToElement(element: string): void {
+    this.layoutService.scrollToElement(element);
+  }
 }

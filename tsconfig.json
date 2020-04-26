@@ -5,17 +5,37 @@
     "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "lib": [ "es2018", "dom" ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/app/components/*"],
+      "@services/*": ["src/app/services/*"],
+      "@models/*": ["src/app/models/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@common/*": ["src/app/common/*"],
+      "@config/*": ["src/app/config/*"],
+      "@constants/*": ["src/app/constants/*"],
+      "@mappers/*": ["src/app/mappers/*"],
+      "@interceptors/*": ["src/app/interceptors/*"],
+      "@envs/*": ["src/environments/*"],
+    },
   }
 }
