@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  title: 'GestionaTusReclamos',oc
+  title: 'GestionaTusReclamos',
   backendUrl: 'https://gtr-frontend.herokuapp.com/send',
   authUrl: '',
 };
