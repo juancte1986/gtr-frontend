@@ -2,9 +2,9 @@
      "port": 8080,
      "auth": {
      	"type": "OAuth2",
-  		"user": "",
-  		"clientId": "",
-  		"clientSecret": "",
+  		"user": "juan.2014.86.12@gmail.com",
+  		"clientId": "1061509961883-tht04n2rct5v2agbq6dq65dglqh7nois.apps.googleusercontent.com",
+  		"clientSecret": "oSTdZ6aeWKfWU3b6S9t_10fV",
       "refreshToken": "1//04hhv1vZDoU_ICgYIARAAGAQSNwF-L9IrOoFGl347jiGUHUVrifFKlEvB-ug-4mft1uXcBwZvry6ipL6IycpI_nzDgXy4HBMGVe4"
      },
      "smtp": "smtp.gmail.com",
