@@ -1,7 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
+/* Modules */
 import {AppRoutingModule} from '@app/app-routing.module';
+import {ToastModule} from 'primeng/toast';
 
 /* Font Awesome */
 import {FontAwesomeModule, FaIconLibrary} from '@fortawesome/angular-fontawesome';
@@ -29,9 +33,12 @@ import {HomeComponent} from '@components/home/home.component';
 import {HeaderComponent} from '@components/layout/header/header.component';
 import {ContentComponent} from '@components/layout/content/content.component';
 import {FooterComponent} from '@components/layout/footer/footer.component';
+import {FormsModule} from '@angular/forms';
 
 /* Services */
+import {MessageService} from 'primeng/api';
 import {LayoutService} from '@services/layout.service';
+import {EmailService} from '@services/email.service';
 
 @NgModule({
   declarations: [
@@ -44,11 +51,17 @@ import {LayoutService} from '@services/layout.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     FontAwesomeModule,
     AppRoutingModule,
+    FormsModule,
+    ToastModule,
   ],
   providers: [
+    MessageService,
     LayoutService,
+    EmailService,
   ],
   bootstrap: [AppComponent]
 })

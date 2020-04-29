@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 
 import {LayoutService} from '@services/layout.service';
+import {EmailService} from '@services/email.service';
+
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +20,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('carouselItem')
   public carouselItem: ElementRef;
 
-  constructor(private layoutService: LayoutService) { }
+  public message = '';
+  public email = '';
+  public name  = '';
+  public sending = false;
+
+
+  constructor(
+    private layoutService: LayoutService,
+    private messageService: MessageService,
+    private emailService: EmailService) {
+  }
 
   public ngAfterViewInit(): void {
     this.layoutService.contactItem = this.contactItem.nativeElement;
@@ -28,5 +41,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void { }
+
+  public sendMail(): void {
+    this.sending = true;
+    this.emailService.sendMail({email: this.email, name: this.name, message: this.message}).subscribe(() => {
+      this.messageService.add({severity: 'success', summary: 'Servicio de Email', detail: 'El correo se envio correctamente.'});
+      this.sending = false;
+    }, (err) => {
+      console.log(err);
+      this.sending = false;
+      this.messageService.add({severity: 'error', summary: 'Servicio de Email', detail: 'El correo no se envio correctamente.'});
+    });
+  }
 
 }

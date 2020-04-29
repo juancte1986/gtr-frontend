@@ -108,7 +108,7 @@
          <div class="col-md-5 order-md-1">
             <div  class="card">
                <!--Form with header-->
-               <form>
+               <form #form="ngForm">
                   <div class="card border-dark rounded-0">
                      <div class="card-header p-0">
                         <div class="text-white bg-dark text-center py-2">
@@ -127,7 +127,10 @@
                                     <fa-icon [icon]="['fas', 'user']"></fa-icon>
                                  </div>
                               </div>
-                              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+                              <input type="text" #nameAndSurname="ngModel" [(ngModel)]="name" class="form-control" id="nameAndSurname" name="nameAndSurname" placeholder="Nombre y Apellido" required>
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="(nameAndSurname.dirty || nameAndSurname.touched) && nameAndSurname.hasError('required')" >
+                             El nombre y apellido es requerido.
                            </div>
                         </div>
                         <div class="form-group">
@@ -137,7 +140,13 @@
                                     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
                                  </div>
                               </div>
-                              <input type="email" class="form-control" id="nombre" name="email" placeholder="ejemplo@gmail.com" required>
+                              <input #contactEmail="ngModel" [email]="true" [(ngModel)]="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="ejemplo@gmail.com" required>
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="(contactEmail.dirty || contactEmail.touched) && contactEmail.hasError('required')" >
+                             El email es requerido.
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="(contactEmail.dirty || contactEmail.touched) && contactEmail.errors?.email">
+                             Formato invalido.
                            </div>
                         </div>
                         <div class="form-group">
@@ -147,14 +156,20 @@
                                     <fa-icon [icon]="['fas', 'comment']"></fa-icon>
                                  </div>
                               </div>
-                              <textarea class="form-control" placeholder="Envianos tu Mensaje" required></textarea>
+                              <textarea #contactMessage="ngModel" [(ngModel)]="message" id="contactMessage" name="contactMessage" class="form-control" placeholder="Envianos tu Mensaje" required></textarea>
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="(contactMessage.dirty || contactMessage.touched) &&  contactMessage.hasError('required')" >
+                             El Mensaje es requerido.
                            </div>
                         </div>
                         <div class="text-center">
-                           <button class="btn btn-dark btn-block rounded-0 py-2">
+                           <button [disabled]="form.invalid" class="btn btn-dark btn-block rounded-0 py-2" (click)="sendMail()">
                               <fa-icon [icon]="['fas', 'paper-plane']"></fa-icon>
                               Enviar
                            </button>
+                           <div class="spinner-grow text-primary" role="status" *ngIf="sending">
+                             <span class="sr-only">Loading...</span>
+                           </div>
                         </div>
                      </div>
                   </div>
