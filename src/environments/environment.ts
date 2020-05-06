@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   title: 'GestionaTusReclamos',
-  backendUrl: 'http://localhost:8080',
+  backendUrl: 'https://gestionatusreclamos-app.herokuapp.com',
   authUrl: '',
 };
 

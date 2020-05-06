@@ -24,6 +24,6 @@ app.post('/send', (req, resp, next) => {
   emailService.sendMail(req, resp, next);
 });
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 6060, () => {
 	console.log('Server start');
 });

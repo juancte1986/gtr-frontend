@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
 
   public title: string;
 
-  constructor(private layoutService: LayoutService ) { }
+  constructor(
+    private layoutService: LayoutService) { }
 
   public ngOnInit(): void {
     this.title = environment.title;

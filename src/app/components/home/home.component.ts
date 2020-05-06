@@ -47,9 +47,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.emailService.sendMail({email: this.email, name: this.name, message: this.message}).subscribe(() => {
       this.messageService.add({severity: 'success', summary: 'Servicio de Email', detail: 'El correo se envio correctamente.'});
       this.sending = false;
-      this.email = '';
-      this.name = '';
-      this.message = '';
      }, (err) => {
       console.log(err);
       this.sending = false;
